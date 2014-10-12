@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	grunt.initConfig({
-		swig_it: {
+		mango_inliner: {
 			dev: {
 				options: {
 					swigDefaults: {
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('test', [
 		'clean',
-		'swig_it',
+		'mango_inliner',
 		'jshint',
 		'mochaTest',
 	]);
