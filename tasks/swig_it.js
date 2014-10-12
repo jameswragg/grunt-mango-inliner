@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 				var dirName = path.dirname(file).split('/'),
 					destPath = dirName.splice(1, dirName.length).join('/'),
 					outputFile = path.basename(file, '.html'),
-					htmlFile = config.data.dest + '/' + destPath + '/' + outputFile + '.html',
+					htmlFile = path.normalize(config.data.dest + '/' + destPath + '/' + outputFile),
 					tplVars = {};
 
 				try {
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 					basename: outputFile
 				};
 
-				grunt.log.writeln('Writing HTML to ' + htmlFile);
+				grunt.log.writeln('Writing output to ' + htmlFile);
 
 				grunt.file.write(htmlFile, swig.renderFile(file, grunt.util._.extend({}, globalVars, tplVars)));
 
